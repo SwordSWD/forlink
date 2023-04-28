@@ -5,7 +5,8 @@
 # authors: Sword
 # url: https://github.com/SwordSWD/forlink
 
-require_dependency 'application_controller'
+require 'resque/tasks'
+task 'resque:setup' => :environment
 
 # Add custom route to the Discourse app
 Discourse::Application.routes.append do
