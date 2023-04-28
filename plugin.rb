@@ -1,4 +1,11 @@
 # plugin.rb
+# name: IW4MADMIN Linking
+# about: An account linking system to the official Project Moon webfront
+# version: 0.0.1
+# authors: Sword
+# url: https://github.com/SwordSWD/forlink
+
+require_dependency 'application_controller'
 
 # Add custom route to the Discourse app
 Discourse::Application.routes.append do
@@ -37,4 +44,5 @@ DiscourseEvent.on(:inject_custom_html) do |doc|
   else
     doc.css('header .d-header-buttons').append('<a class="btn btn-primary" href="/requesttoken">Link Account</a>')
   end
+end
 end
