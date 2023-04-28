@@ -37,12 +37,10 @@ class RequesttokenController < ApplicationController
   end
 end
 
-# Add a custom button to the Discourse interface
 DiscourseEvent.on(:inject_custom_html) do |doc|
   if current_user && current_user.custom_fields['linked_account'].present?
     doc.css('header .d-header-buttons').append("<a class='btn btn-primary' href='#{current_user.custom_fields['linked_account']}'>Linked Account</a>")
   else
     doc.css('header .d-header-buttons').append('<a class="btn btn-primary" href="/requesttoken">Link Account</a>')
   end
-end
-end
+end 
